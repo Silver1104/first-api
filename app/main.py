@@ -1,24 +1,10 @@
-from hmac import new
-from turtle import mode
-from typing import List, Optional
-from urllib import response
-from fastapi import FastAPI, Response, status, HTTPException, Query, Depends
-from fastapi.params import Body
-from pydantic import BaseModel
-from random import randrange
-from fastapi import responses
-import psycopg
-from psycopg.rows import dict_row
-import time
-from sqlalchemy import update
-from sqlmodel import Field, Session, SQLModel, create_engine, select
+
+from fastapi import FastAPI, Depends
+from sqlmodel import Session
 from fastapi.middleware.cors import CORSMiddleware
 from .routers import user, post, auth, vote
-from . import schemas, utils
-from app import model
 from .database import get_session
 from typing import Annotated
-from contextlib import asynccontextmanager
 
 SessionDep = Annotated[Session, Depends(get_session)]
 

@@ -1,4 +1,3 @@
-from click import Option
 from pydantic import BaseModel, conint
 from datetime import datetime
 from typing import Optional

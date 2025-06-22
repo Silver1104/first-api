@@ -1,5 +1,4 @@
-from sqlmodel import Session, SQLModel, create_engine
-from .model import Post
+from sqlmodel import Session, create_engine
 from .config import settings
 postgres_url = f"postgresql+psycopg://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}"
 engine = create_engine(postgres_url, echo=True)
