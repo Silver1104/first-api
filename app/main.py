@@ -59,7 +59,9 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Helloworld!!!!!"}
+
+print("🔥 This line should show if reload works.")
 
 app.include_router(
     user.routers)

@@ -1,6 +1,6 @@
 from pydantic import BaseModel, conint
 from datetime import datetime
-from typing import Optional
+from typing import Annotated, Optional
 
 class UserBase(BaseModel):
     name: str
@@ -13,8 +13,9 @@ class UserOut(UserBase):
     id: int
     created_at: datetime
 
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True
+    }
         
 class UserLogin(BaseModel):
     email: str
@@ -40,15 +41,17 @@ class PostOut(PostBase):
     created_at: datetime
     owner_id: int
     owner: "UserOut" 
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True
+    }
 
 class PostVoteOut(BaseModel):
     Post: PostOut
     votes: int
 
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True
+    }
 
 
 class VoteBase(BaseModel):
@@ -59,5 +62,5 @@ from pydantic import Field
 
 class VoteCreate(BaseModel):
     post_id: int
-    vote_dir: conint(ge=0, le=1)
+    vote_dir: Annotated[int, conint(ge=0, le=1)]
 
