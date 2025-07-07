@@ -3,10 +3,10 @@ from fastapi import FastAPI, Depends
 from sqlmodel import Session
 from fastapi.middleware.cors import CORSMiddleware
 from .routers import user, post, auth, vote
-from .database import get_session
-from typing import Annotated
+# from .database import get_session
+# from typing import Annotated
 
-SessionDep = Annotated[Session, Depends(get_session)]
+# SessionDep = Annotated[Session, Depends(get_session)]
 
 # class Post(BaseModel):
 #     title: str

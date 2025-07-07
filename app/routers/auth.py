@@ -9,7 +9,7 @@ from app.database import get_session
 
 routers = APIRouter(tags=["Authentication"])
 
-@routers.get("/login",  response_model=schemas.Token)
+@routers.post("/login",  response_model=schemas.Token)
 async def login(user_creds: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_session)):
     statement = select(model.User).filter(model.User.email == user_creds.username)
     user_db = db.exec(statement).first()
