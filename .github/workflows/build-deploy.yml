@@ -83,8 +83,10 @@ jobs:
           username: ${{secrets.AWS_EC2_USER}}
           key: ${{secrets.AWS_EC2_KEY}}
           script: |
-            cd ~/app
+            sudo -u silver bash -c '
+            cd /home/silver/app
             git pull origin main
+            source venv/bin/activate
+            pip install -r requirements.txt
             sudo systemctl restart api
-        
 
