@@ -88,6 +88,6 @@ jobs:
             cd ~/app/src
             git pull origin main
             pip install -r requirements.txt
-            sudo systemctl restart api
+            echo ${{secrets.AWS_EC2_USER_PASSWORD}} | sudo -S systemctl restart api
 
 
