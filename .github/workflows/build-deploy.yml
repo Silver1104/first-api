@@ -37,8 +37,8 @@ jobs:
         with:
           python-version: 3.9
       - name: Installing pip
-        uses: python -m pip install --upgrade pip
+        run: python -m pip install --upgrade pip
       - name: Installing dependencies
-        uses: pip install -r requirements.txt
+        run: pip install -r requirements.txt
       - name: Run tests
-        uses: pytest
+        run: pytest
