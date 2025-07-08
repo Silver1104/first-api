@@ -59,7 +59,7 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "Helloworld!!!!! THIS WORKKKSSS"}
+    return {"message": "Helloworld!!!!! THIS WORKKKSSS in ubuntuuu"}
 
 print("🔥 This line should show if reload works.")
 
